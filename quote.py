@@ -517,18 +517,6 @@ class mQuotesMod(loader.Module):
 async def clean_files():
 	return os.system("rm -rf mishase_cache/*")
 
-async def update(url, modules, message):
-	loader = next(filter(lambda x: "LoaderMod" == x.__class__.__name__, modules))
-	try:
-		if await loader.download_and_install(url, message):
-			loader._db.set(__name__, "loaded_modules", list(set(loader._db.get(__name__, "loaded_modules", [])).union([url])))
-			return True
-		else:
-			return False
-	except Exception as e:
-		logger.error(e, exc_info=True)
-		return False
-
 async def check_media(client, reply,
 					  media_files: dict,
 					  is_reply: bool):
