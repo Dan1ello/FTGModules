@@ -1,4 +1,4 @@
-// t.me/govnocodules
+#оригинал - t.me/govnocodules
 import asyncio
 import logging
 import io
@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 
 @loader.tds
 class SavedMod(loader.Module):
-	"""Созранятель в избранное"""
+	"""Сохранятель в избранное"""
 	strings = {"name": "SavedMessages"}
 
 	
