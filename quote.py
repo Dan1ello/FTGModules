@@ -491,13 +491,6 @@ class mQuotesMod(loader.Module):
 				message,
 				self.strings("server_error", message)
 			)
-		if req.status_code == 418:
-			if not self.config["SILENT_PROCESSING"]:
-				await utils.answer(message, self.strings("updating", message))
-			if await update(self.config["MODULE_ENDPOINT"], self.allmodules.modules, message):
-				return await self.allmodules.commands["mquote"](message)
-			else:
-				return await utils.answer(message, self.strings("update_error", message))
 		image = io.BytesIO()
 		image.name = "quote.webp"
 		try:
