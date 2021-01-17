@@ -27,7 +27,7 @@ class DanMod(loader.Module):
 		self.me = await client.get_me()
 		
 	async def jcmd(self, message):
-		""".jevil <в ответ на сообщение/свой текст>. """
+		""".j <в ответ на сообщение/свой текст>. """
 		
 		ufr = requests.get("https://github.com/Dan1ello/FTGModules/raw/main/3952.ttf")
 		f = ufr.content
