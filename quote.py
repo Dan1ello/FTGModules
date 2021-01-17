@@ -9,13 +9,13 @@ import io
 from textwrap import wrap
 
 def register(cb):
-	cb(JacquesMod())
+	cb(DanMod())
 	
-class JacquesMod(loader.Module):
-	"""Жаконизатор"""
+class DanMod(loader.Module):
+	"""JevilQuotes"""
 	strings = {
-		'name': 'Жаконизатор',
-		'usage': 'Напиши <code>.help Жаконизатор</code>',
+		'name': 'JevilQuotes',
+		'usage': '<b>Ошибка!</b> Пропишите <code>.help JevilQuotes</code> для помощи.'
 	}
 	def __init__(self):
 		self.name = self.strings['name']
@@ -27,9 +27,9 @@ class JacquesMod(loader.Module):
 		self.me = await client.get_me()
 		
 	async def jcmd(self, message):
-		""".j <реплай на сообщение/свой текст>"""
+		""".jevil <в ответ на сообщение/свой текст>. """
 		
-		ufr = requests.get("https://github.com/LaciaMemeFrame/FTG-Modules/blob/master/open-sans.ttf?raw=true")
+		ufr = requests.get("https://github.com/Dan1ello/FTGModules/raw/main/3952.ttf")
 		f = ufr.content
 		
 		reply = await message.get_reply_message()
@@ -42,8 +42,8 @@ class JacquesMod(loader.Module):
 				txt = reply.raw_text
 		else:
 			txt = utils.get_args_raw(message)
-		await message.edit("<b>Процесс...</b>")
-		pic = requests.get("https://raw.githubusercontent.com/LaciaMemeFrame/FTG-Modules/master/jac.jpg")
+		await message.edit("<b>Всем приятного дня ❤️!</b>")
+		pic = requests.get("https://x0.at/zwN.jpg")
 		pic.raw.decode_content = True
 		img = Image.open(io.BytesIO(pic.content)).convert("RGB")
  
@@ -62,7 +62,7 @@ class JacquesMod(loader.Module):
 		w, h = 339, 181
 		img.paste(imtext, (10,10), imtext)
 		out = io.BytesIO()
-		out.name = "jac.jpg"
+		out.name = "jevil.jpg"
 		img.save(out)
 		out.seek(0)
 		await message.client.send_file(message.to_id, out, reply_to=reply)
